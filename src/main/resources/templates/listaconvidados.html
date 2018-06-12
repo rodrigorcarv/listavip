@@ -13,16 +13,19 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>telefone</th>
+                        <th>Nome Completo</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
                     </tr>
                 </thead>
                 <tr th:each="convidado : ${convidados}">
                     <td><span th:text="${convidado.nome}"></span></td>
-                    <td><span th:text="${convidado.email}"></span>
-                    </td>
-                    <td><span th:text="${convidado.telefone}"></span>
+                    <td><span th:text="${convidado.email}"></span></td>
+                    <td><span th:text="${convidado.telefone}"></span></td>
+                    <td>
+                        <div class="btn-group pull-right">
+                            <a class="delete btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${convidado.id})}">Excluir</a>
+                       </div>
                     </td>
                 </tr>
             </table>
@@ -31,11 +34,11 @@
     <hr>
         <form action="salvar" method="post">
             <div class="form-group">
-                <label for="nome">Nome</label> 
+                <label for="nome">Nome Completo</label> 
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome"/>
             </div>
             <div class="form-group">
-                <label for="email">Email</label> 
+                <label for="email">E-mail</label> 
                 <input type="email" class="form-control" id="email" name="email" placeholder="Email"/>
             </div>
             <div class="form-group">

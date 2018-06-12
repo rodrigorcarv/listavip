@@ -3,6 +3,7 @@ package br.com.alura.listavip.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,4 +43,15 @@ public class ConvidadoController {
 
         return "listaconvidados";
     }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable("id") Long idConvidado, Model model) {
+        Convidado convidado = convidadoRepository.findOne(idConvidado);
+        convidadoRepository.delete(convidado);
+
+        Iterable<Convidado> convidados = convidadoRepository.findAll();
+        model.addAttribute("convidados", convidados);
+        return "redirect:/listaconvidados";
+    }
+
 }
