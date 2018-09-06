@@ -73,7 +73,7 @@ use listavip;
 Execute o DUMP
 
 ```sh
-source root//volumes//backup_database.sql
+source root//backup_database.sql
 ```
 
  
