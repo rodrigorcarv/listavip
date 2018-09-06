@@ -52,6 +52,7 @@ com o comando a seguir:
 GRANT ALL PRIVILEGES ON * . * TO 'alura'@'%';
 ```
 
+Digite exit para fazer o log do usuário atual
 Conecte a base de dados com usuário alura  
 
 ```sh
@@ -61,7 +62,7 @@ mysql --user=alura --password=alura
 Crie o banco de dados
 
 ```sh
-create database 'listavip';
+create database listavip;
 ```
 
 Selecione o banco de dados
